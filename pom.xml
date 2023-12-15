@@ -67,6 +67,7 @@
         <jaxb.version>2.3.1</jaxb.version>
         <annotations.version>3.0.1</annotations.version>
         <dubbo.version>0.2.0</dubbo.version>
+        <captcha.version>5.8.23</captcha.version>
 
         <!--Plugin Version-->
         <maven.compiler.version>3.8.1</maven.compiler.version>
@@ -549,6 +550,12 @@
                 <groupId>com.google.code.findbugs</groupId>
                 <artifactId>annotations</artifactId>
                 <version>${annotations.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-captcha</artifactId>
+                <version>${captcha.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

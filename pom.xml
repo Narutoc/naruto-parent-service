@@ -69,6 +69,7 @@
         <dubbo.version>0.2.0</dubbo.version>
         <captcha.version>5.8.23</captcha.version>
         <jwt.version>4.4.0</jwt.version>
+        <mongodb.version>3.2.1</mongodb.version>
 
         <!--Plugin Version-->
         <maven.compiler.version>3.8.1</maven.compiler.version>
@@ -257,6 +258,12 @@
                 <groupId>org.springframework.data</groupId>
                 <artifactId>spring-data-redis</artifactId>
                 <version>${spring.data.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-data-mongodb</artifactId>
+                <version>${mongodb.version}</version>
             </dependency>
 
             <!--Redis Dependency-->

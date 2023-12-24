@@ -21,8 +21,6 @@
         <spring.cloud.dependency.version>2021.0.1</spring.cloud.dependency.version>
         <spring.boot.version>2.7.16</spring.boot.version>
         <spring.cloud.starter.version>3.1.1</spring.cloud.starter.version>
-        <spring.cloud.stream.version>3.2.2</spring.cloud.stream.version>
-        <spring.security.data.version>5.6.2</spring.security.data.version>
         <spring.data.version>2.6.3</spring.data.version>
         <springcloud.version>3.1.2</springcloud.version>
         <commin.io.version>2.11.0</commin.io.version>
@@ -32,18 +30,12 @@
         <mssql.version>9.4.0.jre11</mssql.version>
         <mysql.version>8.0.33</mysql.version>
         <lombok.version>1.18.22</lombok.version>
-        <guava.version>31.1-jre</guava.version>
         <fastjson.version>1.2.83</fastjson.version>
         <commons.lang3.version>3.12.0</commons.lang3.version>
         <commons.dbcp.version>1.4</commons.dbcp.version>
         <mybatis.version>3.5.6</mybatis.version>
         <mybatis.springboot.satrt.version>2.2.2</mybatis.springboot.satrt.version>
         <poi.version>4.1.1</poi.version>
-        <hibernate.version>5.4.33</hibernate.version>
-        <job.core.version>2.1.0</job.core.version>
-        <dom4j.version>2.1.3</dom4j.version>
-        <jackson.version>2.13.1</jackson.version>
-        <webjars.version>0.50</webjars.version>
         <snakeyaml.version>1.30</snakeyaml.version>
         <assertj.version>3.21.0</assertj.version>
         <aws.sqs.version>1.12.154</aws.sqs.version>
@@ -53,11 +45,9 @@
         <druid.version>1.2.19</druid.version>
         <net.bytebuddy.version>1.11.22</net.bytebuddy.version>
         <compress.version>1.21</compress.version>
-        <xxl.rpc.version>1.6.0</xxl.rpc.version>
         <xxl.job.version>2.4.0</xxl.job.version>
         <groovy.version>2.5.7</groovy.version>
         <swagger.ui.version>3.0.0</swagger.ui.version>
-        <skywalking.version>8.0.1</skywalking.version>
         <mybatis.plus.version>3.5.4</mybatis.plus.version>
         <dynamic.datasource.version>4.1.3</dynamic.datasource.version>
         <commons.collection.version>4.4</commons.collection.version>
@@ -66,7 +56,7 @@
         <easyexcel.version>2.1.6</easyexcel.version>
         <jaxb.version>2.3.1</jaxb.version>
         <annotations.version>3.0.1</annotations.version>
-        <dubbo.version>0.2.0</dubbo.version>
+        <dubbo.version>3.2.10</dubbo.version>
         <captcha.version>5.8.23</captcha.version>
         <jwt.version>4.4.0</jwt.version>
         <mongodb.version>3.2.1</mongodb.version>
@@ -87,27 +77,13 @@
                 <version>${spring.boot.version}</version>
             </dependency>
 
+            <!--Spring Dependency-->
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-dependencies</artifactId>
                 <version>${spring.boot.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
-            </dependency>
-
-            <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-dependencies</artifactId>
-                <version>${spring.cloud.dependency.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-
-            <!--Spring Dependency-->
-            <dependency>
-                <groupId>org.springframework.security</groupId>
-                <artifactId>spring-security-data</artifactId>
-                <version>${spring.security.data.version}</version>
             </dependency>
 
             <dependency>
@@ -120,6 +96,12 @@
                         <artifactId>spring-boot-autoconfigure</artifactId>
                     </exclusion>
                 </exclusions>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-logging</artifactId>
+                <version>${spring.boot.version}</version>
             </dependency>
 
             <dependency>
@@ -140,22 +122,6 @@
 
             <dependency>
                 <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter-security</artifactId>
-                <version>${spring.boot.version}</version>
-                <exclusions>
-                    <exclusion>
-                        <groupId>org.springframework.boot</groupId>
-                        <artifactId>spring-boot-starter</artifactId>
-                    </exclusion>
-                    <exclusion>
-                        <groupId>org.springframework</groupId>
-                        <artifactId>spring-web</artifactId>
-                    </exclusion>
-                </exclusions>
-            </dependency>
-
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-web</artifactId>
                 <version>${spring.boot.version}</version>
                 <exclusions>
@@ -170,11 +136,16 @@
                 </exclusions>
             </dependency>
 
-            <!--spring-boot-starter-undertow-->
             <dependency>
                 <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter-undertow</artifactId>
+                <artifactId>spring-boot-starter-tomcat</artifactId>
                 <version>${spring.boot.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.apache.tomcat.embed</groupId>
+                        <artifactId>tomcat-embed-core</artifactId>
+                    </exclusion>
+                </exclusions>
             </dependency>
 
             <dependency>
@@ -193,7 +164,75 @@
                 </exclusions>
             </dependency>
 
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-data-mongodb</artifactId>
+                <version>${mongodb.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-test</artifactId>
+                <version>${spring.boot.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.apiguardian</groupId>
+                        <artifactId>apiguardian-api</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.springframework.boot</groupId>
+                        <artifactId>spring-boot-autoconfigure</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.springframework.boot</groupId>
+                        <artifactId>spring-boot-starter</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>com.vaadin.external.google</groupId>
+                        <artifactId>android-json</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.ow2.asm</groupId>
+                        <artifactId>asm</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>net.bytebuddy</groupId>
+                        <artifactId>byte-buddy</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-cache</artifactId>
+                <version>${spring.boot.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-data-redis</artifactId>
+                <version>${spring.boot.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>io.lettuce</groupId>
+                        <artifactId>lettuce-core</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.springframework.boot</groupId>
+                        <artifactId>spring-boot</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
             <!--Spring Cloud Dependency-->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring.cloud.dependency.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-starter</artifactId>
@@ -246,24 +285,6 @@
                 <groupId>org.springframework.data</groupId>
                 <artifactId>spring-data-jpa</artifactId>
                 <version>${spring.data.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.springframework.data</groupId>
-                <artifactId>spring-data-keyvalue</artifactId>
-                <version>${spring.data.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.springframework.data</groupId>
-                <artifactId>spring-data-redis</artifactId>
-                <version>${spring.data.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter-data-mongodb</artifactId>
-                <version>${mongodb.version}</version>
             </dependency>
 
             <!--Redis Dependency-->
@@ -322,19 +343,6 @@
                 <version>${aws.dynamodb.version}</version>
             </dependency>
 
-            <!--hibernate dependency-->
-            <dependency>
-                <groupId>org.hibernate</groupId>
-                <artifactId>hibernate-envers</artifactId>
-                <version>${hibernate.version}</version>
-                <exclusions>
-                    <exclusion>
-                        <groupId>net.bytebuddy</groupId>
-                        <artifactId>byte-buddy</artifactId>
-                    </exclusion>
-                </exclusions>
-            </dependency>
-
             <!--util dependency-->
             <dependency>
                 <groupId>commons-io</groupId>
@@ -352,12 +360,6 @@
                 <groupId>com.alibaba</groupId>
                 <artifactId>fastjson</artifactId>
                 <version>${fastjson.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>com.alibaba.boot</groupId>
-                <artifactId>dubbo-spring-boot-starter</artifactId>
-                <version>${dubbo.version}</version>
             </dependency>
 
             <dependency>
@@ -390,44 +392,6 @@
                 <artifactId>lombok</artifactId>
                 <version>${lombok.version}</version>
                 <optional>true</optional>
-            </dependency>
-
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter-test</artifactId>
-                <version>${spring.boot.version}</version>
-                <exclusions>
-                    <exclusion>
-                        <groupId>org.apiguardian</groupId>
-                        <artifactId>apiguardian-api</artifactId>
-                    </exclusion>
-                    <exclusion>
-                        <groupId>org.springframework.boot</groupId>
-                        <artifactId>spring-boot-autoconfigure</artifactId>
-                    </exclusion>
-                    <exclusion>
-                        <groupId>org.springframework.boot</groupId>
-                        <artifactId>spring-boot-starter</artifactId>
-                    </exclusion>
-                    <exclusion>
-                        <groupId>com.vaadin.external.google</groupId>
-                        <artifactId>android-json</artifactId>
-                    </exclusion>
-                    <exclusion>
-                        <groupId>org.ow2.asm</groupId>
-                        <artifactId>asm</artifactId>
-                    </exclusion>
-                    <exclusion>
-                        <groupId>net.bytebuddy</groupId>
-                        <artifactId>byte-buddy</artifactId>
-                    </exclusion>
-                </exclusions>
-            </dependency>
-
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter-cache</artifactId>
-                <version>${spring.boot.version}</version>
             </dependency>
 
             <dependency>
@@ -488,19 +452,6 @@
             <!-- xxl-job-core -->
             <dependency>
                 <groupId>com.xuxueli</groupId>
-                <artifactId>xxl-rpc-core</artifactId>
-                <version>${xxl.rpc.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>com.xuxueli</groupId>
-                <artifactId>xxl-job</artifactId>
-                <version>${xxl.job.version}</version>
-                <type>pom</type>
-            </dependency>
-
-            <dependency>
-                <groupId>com.xuxueli</groupId>
                 <artifactId>xxl-job-core</artifactId>
                 <version>${xxl.job.version}</version>
             </dependency>
@@ -513,15 +464,15 @@
             </dependency>
 
             <dependency>
-                <groupId>org.apache.skywalking</groupId>
-                <artifactId>apm-toolkit-logback-1.x</artifactId>
-                <version>${skywalking.version}</version>
-            </dependency>
-
-            <dependency>
                 <groupId>com.baomidou</groupId>
                 <artifactId>mybatis-plus-boot-starter</artifactId>
                 <version>${mybatis.plus.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.springframework.boot</groupId>
+                        <artifactId>spring-boot</artifactId>
+                    </exclusion>
+                </exclusions>
             </dependency>
 
             <dependency>
@@ -552,6 +503,20 @@
                 <groupId>org.redisson</groupId>
                 <artifactId>redisson-spring-boot-starter</artifactId>
                 <version>${redisson.spring.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.springframework.boot</groupId>
+                        <artifactId>spring-boot</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.springframework</groupId>
+                        <artifactId>spring-web</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.springframework</groupId>
+                        <artifactId>spring-webmvc</artifactId>
+                    </exclusion>
+                </exclusions>
             </dependency>
 
             <dependency>
@@ -570,6 +535,12 @@
                 <groupId>com.auth0</groupId>
                 <artifactId>java-jwt</artifactId>
                 <version>${jwt.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.dubbo</groupId>
+                <artifactId>dubbo-spring-boot-starter</artifactId>
+                <version>${dubbo.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

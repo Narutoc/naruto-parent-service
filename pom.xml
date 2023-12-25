@@ -60,6 +60,7 @@
         <captcha.version>5.8.23</captcha.version>
         <jwt.version>4.4.0</jwt.version>
         <mongodb.version>3.2.1</mongodb.version>
+        <springdoc.version>1.7.0</springdoc.version>
 
         <!--Plugin Version-->
         <maven.compiler.version>3.8.1</maven.compiler.version>
@@ -541,6 +542,18 @@
                 <groupId>org.apache.dubbo</groupId>
                 <artifactId>dubbo-spring-boot-starter</artifactId>
                 <version>${dubbo.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springdoc</groupId>
+                <artifactId>springdoc-openapi-data-rest</artifactId>
+                <version>${springdoc.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springdoc</groupId>
+                <artifactId>springdoc-openapi-ui</artifactId>
+                <version>${springdoc.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

@@ -24,7 +24,7 @@
         <spring.data.version>2.6.3</spring.data.version>
         <springcloud.version>3.1.2</springcloud.version>
         <commin.io.version>2.11.0</commin.io.version>
-        <redisson.version>3.16.3</redisson.version>
+        <redisson.version>3.22.0</redisson.version>
         <redisson.spring.version>3.15.4</redisson.spring.version>
         <redis.clients.version>3.7.0</redis.clients.version>
         <mssql.version>9.4.0.jre11</mssql.version>
@@ -44,7 +44,7 @@
         <httpcore.version>4.4.15</httpcore.version>
         <druid.version>1.2.19</druid.version>
         <net.bytebuddy.version>1.11.22</net.bytebuddy.version>
-        <compress.version>1.21</compress.version>
+        <compress.version>1.26.0</compress.version>
         <xxl.job.version>2.4.0</xxl.job.version>
         <groovy.version>2.5.7</groovy.version>
         <swagger.ui.version>3.0.0</swagger.ui.version>
@@ -72,12 +72,6 @@
 
     <dependencyManagement>
         <dependencies>
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter-parent</artifactId>
-                <version>${spring.boot.version}</version>
-            </dependency>
-
             <!--Spring Dependency-->
             <dependency>
                 <groupId>org.springframework.boot</groupId>
@@ -103,23 +97,33 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-logging</artifactId>
                 <version>${spring.boot.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter-data-jpa</artifactId>
-                <version>${spring.boot.version}</version>
                 <exclusions>
                     <exclusion>
-                        <groupId>org.springframework.boot</groupId>
-                        <artifactId>spring-boot-starter</artifactId>
+                        <groupId>ch.qos.logback</groupId>
+                        <artifactId>logback-classic</artifactId>
                     </exclusion>
                     <exclusion>
-                        <groupId>net.bytebuddy</groupId>
-                        <artifactId>byte-buddy</artifactId>
+                        <groupId>ch.qos.logback</groupId>
+                        <artifactId>logback-core</artifactId>
                     </exclusion>
                 </exclusions>
             </dependency>
+
+<!--            <dependency>-->
+<!--                <groupId>org.springframework.boot</groupId>-->
+<!--                <artifactId>spring-boot-starter-data-jpa</artifactId>-->
+<!--                <version>${spring.boot.version}</version>-->
+<!--                <exclusions>-->
+<!--                    <exclusion>-->
+<!--                        <groupId>org.springframework.boot</groupId>-->
+<!--                        <artifactId>spring-boot-starter</artifactId>-->
+<!--                    </exclusion>-->
+<!--                    <exclusion>-->
+<!--                        <groupId>net.bytebuddy</groupId>-->
+<!--                        <artifactId>byte-buddy</artifactId>-->
+<!--                    </exclusion>-->
+<!--                </exclusions>-->
+<!--            </dependency>-->
 
             <dependency>
                 <groupId>org.springframework.boot</groupId>
@@ -145,6 +149,10 @@
                     <exclusion>
                         <groupId>org.apache.tomcat.embed</groupId>
                         <artifactId>tomcat-embed-core</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.apache.tomcat.embed</groupId>
+                        <artifactId>tomcat-embed-websocket</artifactId>
                     </exclusion>
                 </exclusions>
             </dependency>
@@ -250,17 +258,17 @@
                 </exclusions>
             </dependency>
 
-            <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-starter-config</artifactId>
-                <version>${springcloud.version}</version>
-                <exclusions>
-                    <exclusion>
-                        <groupId>com.fasterxml.jackson.core</groupId>
-                        <artifactId>jackson-databind</artifactId>
-                    </exclusion>
-                </exclusions>
-            </dependency>
+<!--            <dependency>-->
+<!--                <groupId>org.springframework.cloud</groupId>-->
+<!--                <artifactId>spring-cloud-starter-config</artifactId>-->
+<!--                <version>${springcloud.version}</version>-->
+<!--                <exclusions>-->
+<!--                    <exclusion>-->
+<!--                        <groupId>com.fasterxml.jackson.core</groupId>-->
+<!--                        <artifactId>jackson-databind</artifactId>-->
+<!--                    </exclusion>-->
+<!--                </exclusions>-->
+<!--            </dependency>-->
 
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
@@ -282,11 +290,11 @@
                 </exclusions>
             </dependency>
 
-            <dependency>
-                <groupId>org.springframework.data</groupId>
-                <artifactId>spring-data-jpa</artifactId>
-                <version>${spring.data.version}</version>
-            </dependency>
+<!--            <dependency>-->
+<!--                <groupId>org.springframework.data</groupId>-->
+<!--                <artifactId>spring-data-jpa</artifactId>-->
+<!--                <version>${spring.data.version}</version>-->
+<!--            </dependency>-->
 
             <!--Redis Dependency-->
             <dependency>
@@ -314,11 +322,11 @@
             </dependency>
 
             <!--MSSQL dependency-->
-            <dependency>
-                <groupId>com.microsoft.sqlserver</groupId>
-                <artifactId>mssql-jdbc</artifactId>
-                <version>${mssql.version}</version>
-            </dependency>
+<!--            <dependency>-->
+<!--                <groupId>com.microsoft.sqlserver</groupId>-->
+<!--                <artifactId>mssql-jdbc</artifactId>-->
+<!--                <version>${mssql.version}</version>-->
+<!--            </dependency>-->
 
             <dependency>
                 <groupId>mysql</groupId>
@@ -326,11 +334,11 @@
                 <version>${mysql.version}</version>
             </dependency>
 
-            <dependency>
-                <groupId>com.amazonaws</groupId>
-                <artifactId>aws-java-sdk-sqs</artifactId>
-                <version>${aws.sqs.version}</version>
-            </dependency>
+<!--            <dependency>-->
+<!--                <groupId>com.amazonaws</groupId>-->
+<!--                <artifactId>aws-java-sdk-sqs</artifactId>-->
+<!--                <version>${aws.sqs.version}</version>-->
+<!--            </dependency>-->
 
             <dependency>
                 <groupId>commons-dbcp</groupId>
@@ -338,11 +346,11 @@
                 <version>${commons.dbcp.version}</version>
             </dependency>
 
-            <dependency>
-                <groupId>com.github.derjust</groupId>
-                <artifactId>spring-data-dynamodb</artifactId>
-                <version>${aws.dynamodb.version}</version>
-            </dependency>
+<!--            <dependency>-->
+<!--                <groupId>com.github.derjust</groupId>-->
+<!--                <artifactId>spring-data-dynamodb</artifactId>-->
+<!--                <version>${aws.dynamodb.version}</version>-->
+<!--            </dependency>-->
 
             <!--util dependency-->
             <dependency>
@@ -458,11 +466,11 @@
             </dependency>
 
             <!--groovy dependency-->
-            <dependency>
-                <groupId>org.codehaus.groovy</groupId>
-                <artifactId>groovy</artifactId>
-                <version>${groovy.version}</version>
-            </dependency>
+<!--            <dependency>-->
+<!--                <groupId>org.codehaus.groovy</groupId>-->
+<!--                <artifactId>groovy</artifactId>-->
+<!--                <version>${groovy.version}</version>-->
+<!--            </dependency>-->
 
             <dependency>
                 <groupId>com.baomidou</groupId>
@@ -548,6 +556,12 @@
                 <groupId>org.springdoc</groupId>
                 <artifactId>springdoc-openapi-data-rest</artifactId>
                 <version>${springdoc.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>com.jayway.jsonpath</groupId>
+                        <artifactId>json-path</artifactId>
+                    </exclusion>
+                </exclusions>
             </dependency>
 
             <dependency>

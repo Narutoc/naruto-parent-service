@@ -45,7 +45,7 @@
         <druid.version>1.2.19</druid.version>
         <net.bytebuddy.version>1.11.22</net.bytebuddy.version>
         <compress.version>1.26.0</compress.version>
-        <xxl.job.version>2.4.0</xxl.job.version>
+        <xxl.job.version>2.4.2</xxl.job.version>
         <groovy.version>2.5.7</groovy.version>
         <swagger.ui.version>3.0.0</swagger.ui.version>
         <mybatis.plus.version>3.5.4</mybatis.plus.version>
@@ -97,16 +97,6 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-logging</artifactId>
                 <version>${spring.boot.version}</version>
-                <exclusions>
-                    <exclusion>
-                        <groupId>ch.qos.logback</groupId>
-                        <artifactId>logback-classic</artifactId>
-                    </exclusion>
-                    <exclusion>
-                        <groupId>ch.qos.logback</groupId>
-                        <artifactId>logback-core</artifactId>
-                    </exclusion>
-                </exclusions>
             </dependency>
 
 <!--            <dependency>-->
@@ -525,7 +515,17 @@
                         <groupId>org.springframework</groupId>
                         <artifactId>spring-webmvc</artifactId>
                     </exclusion>
+                    <exclusion>
+                        <groupId>org.springframework.boot</groupId>
+                        <artifactId>spring-boot-actuator</artifactId>
+                    </exclusion>
                 </exclusions>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-actuator</artifactId>
+                <version>2.7.18</version>
             </dependency>
 
             <dependency>
@@ -538,6 +538,24 @@
                 <groupId>cn.hutool</groupId>
                 <artifactId>hutool-captcha</artifactId>
                 <version>${captcha.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>cn.hutool</groupId>
+                        <artifactId>hutool-core</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-core</artifactId>
+                <version>5.8.26</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.jayway.jsonpath</groupId>
+                <artifactId>json-path</artifactId>
+                <version>2.9.0</version>
             </dependency>
 
             <dependency>
